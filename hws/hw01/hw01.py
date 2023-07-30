@@ -104,13 +104,15 @@ def with_if_function():
 
 def cond():
     "*** YOUR CODE HERE ***"
+    return False
 
 def true_func():
     "*** YOUR CODE HERE ***"
+    print(42)
 
 def false_func():
     "*** YOUR CODE HERE ***"
-
+    print(47)
 
 def hailstone(n):
     """Print the hailstone sequence starting at n and return its
@@ -128,4 +130,16 @@ def hailstone(n):
     7
     """
     "*** YOUR CODE HERE ***"
+    num = 0
+    while True:
+        print(n)
+        num += 1
+        if n == 1:
+            break
 
+        if n % 2:
+            # n odd
+            n = n * 3 + 1
+        else:
+            n //= 2
+    return num
