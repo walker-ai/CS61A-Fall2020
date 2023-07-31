@@ -88,6 +88,13 @@ def composite_identity(f, g):
     False
     """
     "*** YOUR CODE HERE ***"
+    def func(x):
+        ret1 = compose1(f, g)
+        ret2 = compose1(g, f)
+        if ret1(x) == ret2(x):
+            return True
+        return False
+    return func
 
 
 
@@ -118,4 +125,14 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
-
+    def func(n, x):
+        if n <= 0:
+            return x
+        elif n % 3 == 1:
+            return f1(func(n - 1, x))
+        elif n % 3 == 2:
+            return f2(f1(func(n - 2, x)))
+        elif n % 3 == 0:
+            return f3(f2(f1(func(n - 3, x))))
+    
+    return lambda n : lambda x : func(n, x)
