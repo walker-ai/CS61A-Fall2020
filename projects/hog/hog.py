@@ -86,6 +86,7 @@ def extra_turn(player_score, opponent_score):
             swine_align(player_score, opponent_score))
 
 
+
 def swine_align(player_score, opponent_score):
     """Return whether the player gets an extra turn due to Swine Align.
 
@@ -99,8 +100,17 @@ def swine_align(player_score, opponent_score):
     """
     # BEGIN PROBLEM 4a
     "*** YOUR CODE HERE ***"
-    # END PROBLEM 4a
+    def gcd(a, b):
+        if b != 0:
+            return gcd(b, a % b)
+        return a
+    
 
+    if player_score != 0 and opponent_score != 0 and gcd(player_score, opponent_score) >= 10:
+        return True
+    return False
+    # END PROBLEM 4a
+    
 
 def pig_pass(player_score, opponent_score):
     """Return whether the player gets an extra turn due to Pig Pass.
