@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': 'a4d959d6146005b45f9590c6bc256e37',
+          'answer': 'While score0 and score1 are both less than goal',
           'choices': [
             'While score0 and score1 are both less than goal',
             'While at least one of score0 or score1 is less than goal',
@@ -13,7 +13,7 @@ test = {
             'While score1 is less than goal'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': r"""
           The variables score0 and score1 are the scores for Player 0
           and Player 1, respectively. Under what conditions should the
@@ -21,14 +21,14 @@ test = {
           """
         },
         {
-          'answer': 'bcda62bd369acb79a636e354f5ef2f48',
+          'answer': 'A function that returns the number of dice a player will roll',
           'choices': [
             'The number of dice a player will roll',
             'A function that returns the number of dice a player will roll',
             "A player's desired turn outcome"
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'What is a strategy in the context of this game?'
         },
         {
