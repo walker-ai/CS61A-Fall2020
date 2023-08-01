@@ -50,8 +50,7 @@ def free_bacon(score):
     # BEGIN PROBLEM 2
     "*** YOUR CODE HERE ***"
 
-    for i in range(101 - (score + 1)):
-        pi //= 10
+    pi //= pow(10, 100 - score)
 
     # END PROBLEM 2
 
@@ -106,7 +105,7 @@ def swine_align(player_score, opponent_score):
         return a
     
 
-    if player_score != 0 and opponent_score != 0 and gcd(player_score, opponent_score) >= 10:
+    if player_score > 0 and opponent_score > 0 and gcd(player_score, opponent_score) >= 10:
         return True
     return False
     # END PROBLEM 4a
@@ -173,24 +172,32 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
-
-    score = [score0, score1]
     strategy = [strategy0, strategy1]
-
+    
     while True:
-
+        score = [score0, score1]
+        
         num_rolls = strategy[who](score[who], score[other(who)])
-
         score[who] += take_turn(num_rolls, score[other(who)], dice)
         
         while extra_turn(score[who], score[other(who)]):
+            if score[who] >= goal:
+                break
+
+            num_rolls = strategy[who](score[who], score[other(who)])
             score[who] += take_turn(num_rolls, score[other(who)], dice)
+
+        if who == 0:
+            score0, score1 = score[who], score[other(who)]
+        else:
+            score1, score0 = score[who], score[other(who)]
         
         who ^= 1
         
-        if score0 >= GOAL_SCORE or score1 >= GOAL_SCORE:
+        
+        if score0 >= goal or score1 >= goal:
             break
-        # end of this turn
+        
         
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)

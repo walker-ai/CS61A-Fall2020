@@ -32,7 +32,7 @@ test = {
           'question': 'What is a strategy in the context of this game?'
         },
         {
-          'answer': '6092933b58b128fe246b574b1aa79389',
+          'answer': 'strategy1(score1, score0)',
           'choices': [
             'strategy1(score1, score0)',
             'strategy1(score0, score1)',
@@ -40,7 +40,7 @@ test = {
             'strategy1(score0)'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': r"""
           If strategy1 is Player 1's strategy function, score0 is
           Player 0's current score, and score1 is Player 1's current
@@ -60,14 +60,12 @@ test = {
           >>> # Play function stops at goal
           >>> s0, s1 = hog.play(always(5), always(3), score0=91, score1=10, dice=always_three)
           >>> s0
-          17a90ac6d84565b47483000c22f1f6de
-          # locked
+          106
           >>> s1
-          70e71b420a966665c548a3bb2cb30d7d
-          # locked
+          10
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
@@ -75,14 +73,12 @@ test = {
           >>> # Goal score is not hardwired
           >>> s0, s1 = hog.play(always(5), always(5), goal=10, dice=always_three)
           >>> s0
-          af0b3285304485122429774c0ea3182a
-          # locked
+          15
           >>> s1
-          962aea5f59fc55bd65ccacf4603c8f22
-          # locked
+          0
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
@@ -131,14 +127,12 @@ test = {
           >>> strat1 = lambda score, opponent: max((score // 10) - 4, 0)
           >>> s0, s1 = hog.play(strat0, strat1, score0=71, score1=80, dice=always_seven)
           >>> s0
-          03f84ad87569499dc2c6ad5123dd852a
-          # locked
+          83
           >>> s1
-          c8735a01952a81cf365b4c80d8fbb832
-          # locked
+          108
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         }
       ],
       'scored': True,

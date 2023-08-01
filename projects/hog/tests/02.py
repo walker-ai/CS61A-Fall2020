@@ -39,11 +39,10 @@ test = {
         {
           'code': r"""
           >>> free_bacon(4)
-          2aef307e1e3d3bb468f74013a49eb977
-          # locked
+          8
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
