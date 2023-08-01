@@ -181,10 +181,10 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
 
         num_rolls = strategy[who](score[who], score[other(who)])
 
-        take_turn(num_rolls, score[other(who)], dice)
+        score[who] += take_turn(num_rolls, score[other(who)], dice)
         
         while extra_turn(score[who], score[other(who)]):
-            take_turn(num_rolls, score[other(who)], dice)
+            score[who] += take_turn(num_rolls, score[other(who)], dice)
         
         who ^= 1
         
