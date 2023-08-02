@@ -423,15 +423,20 @@ def run_experiments():
     if False:  # Change to True to test bacon_strategy
         print('bacon_strategy win rate:', average_win_rate(bacon_strategy))
 
-    if False:  # Change to True to test extra_turn_strategy
+    if True:  # Change to True to test extra_turn_strategy
         print('extra_turn_strategy win rate:', average_win_rate(extra_turn_strategy))
 
     if False:  # Change to True to test final_strategy
         print('final_strategy win rate:', average_win_rate(final_strategy))
 
     "*** You may add additional experiments as you wish ***"
+    if True:  # Change to True to test always_roll(6) (baseline)
+        print('always_roll(6) win rate:', average_win_rate(always_roll(6)), 'baseline')
+
     if True:  # Change to True to test always_roll(4)
         print('always_roll(4) win rate:', average_win_rate(always_roll(4)))
+
+
 
 
 def bacon_strategy(score, opponent_score, cutoff=8, num_rolls=6):
