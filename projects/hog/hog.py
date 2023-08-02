@@ -180,12 +180,24 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
         num_rolls = strategy[who](score[who], score[other(who)])
         score[who] += take_turn(num_rolls, score[other(who)], dice)
         
+        # say
+        if who == 0:
+            say = say(score[who], score[other(who)])
+        else:
+            say = say(score[other(who)], score[who])
+
         while extra_turn(score[who], score[other(who)]):
             if score[who] >= goal:
                 break
 
             num_rolls = strategy[who](score[who], score[other(who)])
             score[who] += take_turn(num_rolls, score[other(who)], dice)
+
+            # say
+            if who == 0:
+                say = say(score[who], score[other(who)])
+            else:
+                say = say(score[other(who)], score[who])
 
         if who == 0:
             score0, score1 = score[who], score[other(who)]
