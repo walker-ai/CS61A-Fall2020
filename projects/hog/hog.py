@@ -430,7 +430,8 @@ def run_experiments():
         print('final_strategy win rate:', average_win_rate(final_strategy))
 
     "*** You may add additional experiments as you wish ***"
-
+    if True:  # Change to True to test always_roll(4)
+        print('always_roll(4) win rate:', average_win_rate(always_roll(4)))
 
 
 def bacon_strategy(score, opponent_score, cutoff=8, num_rolls=6):
@@ -452,7 +453,14 @@ def extra_turn_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     Otherwise, it rolls NUM_ROLLS.
     """
     # BEGIN PROBLEM 11
-    return 6  # Replace this statement
+    
+    # return 6  # Replace this statement
+
+    add_part = free_bacon(opponent_score)
+    score += add_part
+
+    return 0 if extra_turn(score, opponent_score) or add_part >= cutoff else num_rolls
+
     # END PROBLEM 11
 
 
