@@ -417,16 +417,16 @@ def run_experiments():
         six_sided_max = max_scoring_num_rolls(six_sided)
         print('Max scoring num rolls for six-sided dice:', six_sided_max)
 
-    if False:  # Change to True to test always_roll(8)
+    if True:  # Change to True to test always_roll(8)
         print('always_roll(8) win rate:', average_win_rate(always_roll(8)))
 
-    if False:  # Change to True to test bacon_strategy
+    if True:  # Change to True to test bacon_strategy
         print('bacon_strategy win rate:', average_win_rate(bacon_strategy))
 
     if True:  # Change to True to test extra_turn_strategy
         print('extra_turn_strategy win rate:', average_win_rate(extra_turn_strategy))
 
-    if False:  # Change to True to test final_strategy
+    if True:  # Change to True to test final_strategy
         print('final_strategy win rate:', average_win_rate(final_strategy))
 
     "*** You may add additional experiments as you wish ***"
@@ -435,8 +435,6 @@ def run_experiments():
 
     if True:  # Change to True to test always_roll(4)
         print('always_roll(4) win rate:', average_win_rate(always_roll(4)))
-
-
 
 
 def bacon_strategy(score, opponent_score, cutoff=8, num_rolls=6):
@@ -469,13 +467,20 @@ def extra_turn_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     # END PROBLEM 11
 
 
-def final_strategy(score, opponent_score):
+def final_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     """Write a brief description of your final strategy.
 
     *** YOUR DESCRIPTION HERE ***
     """
     # BEGIN PROBLEM 12
-    return 6  # Replace this statement
+    rolls = extra_turn_strategy(score, opponent_score, cutoff, num_rolls)
+    # return rolls  # Replace this statement
+    if rolls == 0:
+        return rolls
+    elif score > opponent_score:
+        return 4  # the win rate of 4 is higher than 0, 1 or 2
+    else:
+        return num_rolls
     # END PROBLEM 12
 
 ##########################
