@@ -66,6 +66,30 @@ def pingpong(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    
+
+    '''
+    index, value, direction = 0, 0, 1
+    while i != n:
+        i += 1
+        value += direction
+        if num_eights(i) >= 1 or i % 8 == 0:
+            direction *= -1
+    
+    return value
+    '''
+
+    def helper(index, ppn, dir):
+        # end
+        if index == n:
+            return ppn
+        
+        if num_eights(index) >= 1 or index % 8 == 0:
+            return helper(index + 1, ppn - dir, -dir)
+        else:
+            return helper(index + 1, ppn + dir, dir)
+
+    return helper(1, 1, 1)
 
 
 def missing_digits(n):
