@@ -120,7 +120,11 @@ def missing_digits(n):
     True
     """
     "*** YOUR CODE HERE ***"
-
+    # remember the digit that appear
+    if n < 10:
+        return 0
+    else:
+        return missing_digits(n // 10) + max(0, (n % 10 - n // 10 % 10 - 1))
 
 def next_largest_coin(coin):
     """Return the next coin. 
